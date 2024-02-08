@@ -7,6 +7,12 @@
         justify-content: space-around;
         color: black;
         font-family: "Cormorant", serif;
+        flex-wrap: wrap;
+        height: 100%;
+
+        @include tablet {
+            flex-wrap: nowrap;
+        }
     }
 
     &__column {
