@@ -1,25 +1,27 @@
 .contact{
-    height: 100vh;
-    background-image: url("../../../public/background_contact.png");
+    height: 100%;
+    background-image: url("../../../public/background_contact.png" );
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 2rem;
 
+    @include tablet {
+        padding: 0;
+    }
 
-    padding: $xxl-pd 0; 
     &__container{
         margin-left: auto;
         margin-right: auto;
         border-radius: $m-rad;
         width: 100%;
-        height: 80%;
         padding-bottom: 5%;
-        padding: 0 15%;
 
 
         @include desktop{
             display: flex;
             width: 60%;
-            height: 75%;
-            padding: 6rem 8rem;
+            padding: 5rem;
         }
     }
 
@@ -32,12 +34,25 @@
     }
 
     &__content-left{
-        background-image: url("../../../public/contact-img.png");
-        width: 50%;
+        display: none;
+        @include tablet {
+            display: flex;
+            background-image: url("../../../public/contact-img.png");
+            width: 50%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
     }
     &__content-right{
-        width: 50%;
         background-color: $secondary;
+        padding: 2rem;
+
+        @include tablet {
+            width: 50%;
+            padding: 0;
+        }
 
         &__button{
             display: flex;
@@ -80,9 +95,13 @@
             border-color: $primary;
             padding: $xs-pd;
             font-family: 'Crimsom Text', serif;
-            width: 100%;
+            width: 90%;
             background-color: $secondary;
             margin-top: 0.2rem;
+
+            @include tablet{
+                width: 100%;
+            }
     
             &:focus{
                 outline: none;

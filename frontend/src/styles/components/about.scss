@@ -3,29 +3,46 @@ p {
 }
 
 .circleImg {
-    width: 23rem;
-    height: 23rem;
+    width: 15rem;
+    height: 15rem;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.55); 
+
+    @include tablet {
+        width: 23rem;
+        height: 23rem;
+    }
 }
 
 .about{
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    padding: 5rem 0;
-    font-family: 'Cormorant', serif;
+
+    @include tablet  {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        padding: 5rem 0;
+        font-family: 'Cormorant', serif;
+
+    }
+
 
     &__circle-container {
         position: relative;
-    margin: auto;
+        margin-top: 1rem;
+        
+        @include tablet {
+            margin: 0;
+            margin: auto;
+
+        }
+
     }
 
     &__circle {
         background: #BF0000;
         display: grid;
-        width: 25rem;
-        height: 25rem;
+        width: 15rem;
+        height: 15rem;
         border-radius: 50%;
         justify-content: center;
         text-align: center;
@@ -33,23 +50,38 @@ p {
         align-content: space-evenly;
         color: white; 
         position: absolute;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.55); 
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.55);
+        margin-left: 1rem; 
+
+        @include tablet {
+            width: 25rem;
+            height: 25rem;
+            margin-left: 0;
+        }
     }
 
     &__content-title {
-        font-size: $xxl-sz;
+        font-size: $m-sz;
         font-family: 'Pinyon Script', cursive;
         text-decoration: underline 0.1rem;
+        @include tablet {
+            font-size: $xxl-sz;
+        }
+   
     }
 
     &__menu {
         max-width: 13rem;
-        font-size: $s-sz;
+        font-size: $xs-sz;
+        @include tablet {
+            font-size: $s-sz;
+        }
+
     }
 
     &__price {
         font-family: 'Pinyon Script', cursive;
-        font-size: 1.5rem;
+        font-size: 1rem;
 
         &::before {
             content: "";
@@ -62,27 +94,45 @@ p {
             margin-bottom: 0.5rem;
             
         }
+
+        @include tablet {
+            font-size: 1.5rem;
+
+
+        }
     }
 
     &__circle-img {
         padding-top: 5rem;
-        padding-left: 13rem;
+        padding-left: 7rem;
+        @include tablet {
+            padding-left: 13rem;
+        }
     }
 
     &__circleImg {
-        width: 13rem;
-        height: 13rem;
+        width: 8rem;
+        height: 8rem;
         float: right;
     shape-outside: circle();
     margin-left: $big-mg;
+
+    @include tablet {
+        width: 13rem;
+        height: 13rem;
+    }
     
     }
 
     &__article {
         margin: auto;
         padding: 2rem;
-        padding-right: 10rem;
         font-weight: 500;
+        
+        @include tablet {
+            padding-right: 10rem;
+        }
+
     }
 
     &__title {

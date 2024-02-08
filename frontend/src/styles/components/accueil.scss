@@ -1,7 +1,11 @@
 .presentation{
-    height: 100vh;
+    height: 80vh;
     overflow: hidden;
     font-family: 'Pinyon Script';
+
+    @include desktop{
+        height: 100vh;
+    }
 
     &__container{
         height: 100%;
@@ -16,21 +20,32 @@
         font-size: 4rem;
         margin: 0;
         color: $secondary;
+        display: none;
+
+        @include desktop{
+            display: block;
+        }
     }
 
     &__content{
         height: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 100%;
-        width: 120%;
-        position: relative;
-        left: -10%;
+        display: flex;
+        flex-direction: column;
+
+        @include desktop{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 100%;
+            width: 120%;
+            position: relative;
+            left: -10%;
+
+        }
     }
 
     &__contact{
         width: 100%;
-        height: 100%;
+        height: 33%;
         font-size: 4rem;
         background-image: url('../../../public/Img/imgcontact.jpg');
         background-attachment: scroll !important;
@@ -39,14 +54,10 @@
         background-size: cover;
         flex:1;
         color: $secondary;
-        transform: skew(6deg);
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100%;
-        p{
-            transform: skew(-6deg);
-        }
         filter: brightness(0.4);
         &:hover{
             transition: 0.5s;
@@ -55,11 +66,20 @@
                 filter: brightness(1);
             }
         }
+
+        @include desktop{
+            transform: skew(6deg);
+            p{
+                transform: skew(-6deg);
+            }
+            height: 100%;
+
+        }
     }
 
     &__menu{
         width: 100%;
-        height: 100%;
+        height: 33%;
         font-size: 4rem;
         color: $secondary;
         background-image: url('../../../public/Img/imgmenu.jpg');
@@ -67,7 +87,6 @@
         background-repeat: no-repeat !important;
         background-position: center;
         background-size: cover;
-        transform: skew(6deg);
         filter: brightness(0.4);
         &:hover{
             transition: 0.5s;
@@ -87,15 +106,25 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            p{
-                transform: skew(-6deg);
+
+            @include desktop{
+                p{
+                    transform: skew(-6deg);
+                }
             }
         }
+
+        @include desktop{
+            transform: skew(6deg);
+            height: 100%;
+        }
+
+        
     }
 
     &__reservation{
         width: 100%;
-        height: 100%;
+        height: 33%;
         font-size: 4rem;
         color: $secondary;
         background-image: url('../../../public/Img/imgreservation.jpg');
@@ -103,18 +132,25 @@
         background-repeat: no-repeat !important;
         background-position: center;
         background-size: cover;
-        transform: skew(6deg);
         display: flex;
         align-items: center;
-        height: 100%;
-        p{
-            transform: skew(-6deg);
-            margin-left: 5rem;
-        }
+        justify-content: center;
         filter: brightness(0.4);
         &:hover{
             transition: 0.5s;
             filter: brightness(0.6);
+        }
+
+        @include desktop{
+            transform: skew(6deg);
+            p{
+                transform: skew(-6deg);
+                margin-left: 5rem;
+            }
+            height: 100%;
+            justify-content: inherit;
+
+
         }
     }
 }

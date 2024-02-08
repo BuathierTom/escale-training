@@ -2,6 +2,12 @@
     background: url("../../../public//Img/background-reservation.png") ;
     background-size: cover;
     background-position: center;
+    padding: 2rem;
+
+
+    @include tablet {
+        padding: 0;
+    }
 
 
 
@@ -71,7 +77,6 @@
 
         textarea{
             height: 60px;
-            width: 100%;
             resize: none;
         }
 
@@ -81,16 +86,11 @@
             border-width: 1.5px;
             border-color: $primary;
             padding: $xs-pd;
-            width: 90%;
             background-color: transparent;
             margin-top: 0.2rem;
     
             &:focus{
                 outline: none;
-            }
-    
-            @include tablet{
-                width: 100%;
             }
         }
 

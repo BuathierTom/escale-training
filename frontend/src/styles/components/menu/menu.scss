@@ -1,10 +1,19 @@
 .menu {
     background: url('../../../public/Img/background.jpg') center no-repeat ;
     background-size: cover;
-    height: 120vh; 
+    height: 100%; 
     position: relative;
     color: white;
     font-family: "Cormorant", serif;
+    padding: 2rem;
+
+    @include tablet {
+        padding: 0;
+    }
+
+    @include tablet {
+        height: 120vh;
+    }
 
     &__container {
         height: 100%;
@@ -13,29 +22,50 @@
     }
 
     &__title {
-        font-size: 2.5rem;
+        font-size: 2rem;
         text-align: center;
         margin: auto;
         font-weight: 300;
         text-transform: uppercase;
-        width: 25rem;      
         line-height: 1.5;  
+
+        @include tablet {
+            width: 25rem; 
+            font-size: 2.5rem;     
+
+            
+        }
     }
 
     &__list {
         display: flex;
         padding: 0;
         justify-content: center;
-        gap: 3rem;
         list-style: none;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin: 2rem 0;
+
+        @include tablet {
+           flex-wrap: nowrap;
+           gap: 3rem;
+           margin: 0;
+
+
+        }
     }
 
     &__item {
-        width: 12rem;
+        width: 10rem;
+        font-size: $s-sz;
         display: flex;
         justify-content: center;
-        font-size: $m-sz;
         cursor: pointer; 
+
+        @include tablet {
+            width: 12rem;
+            font-size: $m-sz;
+        }
         
         &.hover:hover::after{
             content: "27 €";
@@ -66,6 +96,14 @@
         height: 25rem;
         border-radius: 1.5rem;
         display: flex;  
-        padding-top: 0;      
+        flex-wrap: wrap;
+        padding-top: 0; 
+        height: 100%;
+        
+        @include tablet {
+            flex-wrap: nowrap;
+            height: auto;
+
+        }
     }
 }
