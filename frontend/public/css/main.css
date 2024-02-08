@@ -1,0 +1,39 @@
+.presentation {
+  height: 100vh;
+}
+.presentation__content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.presentation__contact {
+  width: 33%;
+  height: 100%;
+  background-image: url("../../../public/imgcontact.jpg");
+  background-attachment: scroll !important;
+  background-repeat: no-repeat !important;
+  background-position: center;
+  background-size: cover;
+  padding: 1em 2%;
+  flex: 1;
+  color: white;
+}
+.presentation__menu {
+  width: 33%;
+  height: 100%;
+  background-attachment: scroll !important;
+  background-repeat: no-repeat !important;
+  background-position: center;
+  background-size: cover;
+}
+.presentation__reservation {
+  width: 33%;
+  height: 100%;
+  background-attachment: scroll !important;
+  background-repeat: no-repeat !important;
+  background-position: center;
+  background-size: cover;
+}
+
+/*# sourceMappingURL=main.css.map */

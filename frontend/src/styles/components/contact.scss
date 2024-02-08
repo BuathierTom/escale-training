@@ -1,0 +1,130 @@
+.contact{
+    height: 100vh;
+    background-image: url("../../../public/background_contact.png");
+    background-size: cover;
+
+
+    padding: $xxl-pd 0; 
+    &__container{
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: $m-rad;
+        width: 100%;
+        height: 80%;
+        padding-bottom: 5%;
+        padding: 0 15%;
+
+
+        @include desktop{
+            display: flex;
+            width: 60%;
+            height: 75%;
+            padding: 6rem 8rem;
+        }
+    }
+
+    &__content-title{
+        font-family: 'Pinyon Script';
+        font-size: $xxl-sz;
+        color: $primary;
+        text-align: center;
+        font-weight: 100;
+    }
+
+    &__content-left{
+        background-image: url("../../../public/contact-img.png");
+        width: 50%;
+    }
+    &__content-right{
+        width: 50%;
+        background-color: $secondary;
+
+        &__button{
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+        }
+    }
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: 4rem;
+        margin-bottom: auto;
+
+        @include desktop {
+            padding: 0 $l-pd;
+        }
+
+        @include mid-desktop{
+            padding:0 $big-pd;
+        }
+    }
+
+    &__form-input{
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+
+        textarea{
+            height: 60px;
+            resize: none;
+        }
+
+        &__input{
+            border-radius: $xxl-rad;
+            border-style: solid;
+            border-width: 1.5px;
+            border-color: $primary;
+            padding: $xs-pd;
+            font-family: 'Crimsom Text', serif;
+            width: 100%;
+            background-color: $secondary;
+            margin-top: 0.2rem;
+    
+            &:focus{
+                outline: none;
+            }
+    
+            @include tablet{
+                width: 100%;
+            }
+        }
+
+        &__label{
+            font-family: 'Pinyon Script';
+            font-size: 1.2rem;
+            color: $tertiary;
+            margin-left: 0.5rem;
+        }
+    }
+
+    &__form-line{
+        gap: 2rem;
+        display: flex;
+        flex-direction: column;
+        @include desktop{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            gap: 3rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &__form-name{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        gap: 3rem;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+}
