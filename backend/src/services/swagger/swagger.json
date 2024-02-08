@@ -1,0 +1,1132 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Documentation API",
+    "version": "1.0.0",
+    "description": "This is the documentation of the API for the restaurant L'Escale. It allows you to manage the desserts, drinks, wines, menu discovery, menu escale and reservations. You can create and read all these elements."
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+
+  "tags": [
+    {
+      "name": "Desserts",
+      "description": "API for desserts"
+    },
+    {
+      "name": "Drinks",
+      "description": "API for drinks"
+    },
+    {
+      "name": "Wines",
+      "description": "API for wines"
+    },
+    {
+      "name": "Menu Discovery",
+      "description": "API for menu discovery"
+    },
+    {
+      "name": "Menu Escale",
+      "description": "API for menu escale"
+    },
+    {
+      "name": "Reservations",
+      "description": "API for the reservations"
+    }
+  ],
+
+  "paths": {
+    "/desserts/get": {
+      "get": {
+        "tags": [
+          "Desserts"
+        ],
+        "description": "Recovery of all desserts",
+        "responses": {
+          "200": {
+            "description": "Success, recovery of all desserts",
+            "example": {
+              "application/json": [
+                {
+                  "_id": "65b26e68707d538bc0df8b8e",
+                  "id": 1,
+                  "name": "CRÉATION AUTOUR DU CITRON",
+                  "description": "Création maison sur le thème du Citron",
+                  "imgLink": "creation_citron",
+                  "price": 9,
+                  "label": "Desserts maison",
+                  "__v": 0
+                },
+                {
+                  "_id": "65b26ea1707d538bc0df8b92",
+                  "id": 2,
+                  "name": "LE RING",
+                  "description": "Au chocolat & noisettes",
+                  "imgLink": "ring",
+                  "price": 9,
+                  "label": "Desserts maison",
+                  "__v": 0
+                }
+              ]
+            },
+            "schema": {
+              "$ref": "#/definitions/Desserts"
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/desserts/get/{id}": {
+      "get": {
+        "tags": [
+          "Desserts"
+        ],
+        "description": "Recovery of a dessert by its id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success, recovery of a dessert by its id",
+            "example": {
+              "application/json": {
+                "_id": "65b26e68707d538bc0df8b8e",
+                "id": 1,
+                "name": "CRÉATION AUTOUR DU CITRON",
+                "description": "Création maison sur le thème du Citron",
+                "imgLink": "creation_citron",
+                "price": 9,
+                "label": "Desserts maison",
+                "__v": 0
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Desserts"
+            },
+            "404": {
+              "$ref": "#/components/responses/404"
+            },
+            "500": {
+              "$ref": "#/components/responses/500"
+            }
+          }
+        }
+      }
+    },
+    "/desserts/create": {
+      "post": {
+        "tags": [
+          "Desserts"
+        ],
+        "description": "Create a dessert",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imgLink",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "label",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Dessert created",
+            "schema": {
+              "$ref": "#/definitions/Desserts"
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+
+    "/drinks/get": {
+      "get": {
+        "tags": [
+          "Drinks"
+        ],
+        "description": "Recovery of all drinks",
+        "responses": {
+          "200": {
+            "description": "Success, recovery of all drinks",
+            "example": {
+              "application/json": [
+                {
+                  "_id": "65b263009da13321d199bf37",
+                  "id": 1,
+                  "name": "KIR VIN BLANC",
+                  "description": "",
+                  "imgLink": "kir_vin_blanc",
+                  "price": 5,
+                  "price25cl": null,
+                  "price33cl": null,
+                  "price50cl": null,
+                  "label": "Apéritifs",
+                  "__v": 0
+                },
+                {
+                  "_id": "65b263199da13321d199bf3b",
+                  "id": 2,
+                  "name": "MONACO",
+                  "description": "",
+                  "imgLink": "monaco",
+                  "price": 5.5,
+                  "price25cl": null,
+                  "price33cl": null,
+                  "price50cl": null,
+                  "label": "Apéritifs",
+                  "__v": 0
+                }
+              ]
+            },
+            "schema": {
+              "$ref": "#/definitions/Drinks"
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/drinks/get/{id}": {
+      "get": {
+        "tags": [
+          "Drinks"
+        ],
+        "description": "Recovery of a drink by its id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success, recovery of a drink by its id",
+            "example": {
+              "application/json": [
+                {
+                  "_id": "65b263009da13321d199bf37",
+                  "id": 1,
+                  "name": "KIR VIN BLANC",
+                  "description": "",
+                  "imgLink": "kir_vin_blanc",
+                  "price": 5,
+                  "price25cl": null,
+                  "price33cl": null,
+                  "price50cl": null,
+                  "label": "Apéritifs",
+                  "__v": 0
+                }
+              ]
+            },
+            "schema": {
+              "$ref": "#/definitions/Drinks"
+            },
+            "404": {
+              "$ref": "#/components/responses/404"
+            },
+            "500": {
+              "$ref": "#/components/responses/500"
+            }
+          }
+        }
+      }
+    },
+    "/drinks/create": {
+      "post": {
+        "tags": [
+          "Drinks"
+        ],
+        "description": "Create a drink",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imgLink",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "price25cl",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "price33cl",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "price50cl",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "label",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Drink created",
+            "schema": {
+              "$ref": "#/definitions/Drinks"
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+
+    "/vines/get": {
+      "get": {
+        "tags": [
+          "Wines"
+        ],
+        "description": "Recovery of all wines",
+        "responses": {
+          "200": {
+            "description": "Success, recovery of all wines",
+            "example": {
+              "application/json": [
+                {
+                  "_id": "65b26e68707d538bc0df8b8e",
+                  "id": 1,
+                  "name": "CRÉATION AUTOUR DU CITRON",
+                  "description": "Création maison sur le thème du Citron",
+                  "imgLink": "creation_citron",
+                  "price": 9,
+                  "label": "Desserts maison",
+                  "__v": 0
+                },
+                {
+                  "_id": "65b26ea1707d538bc0df8b92",
+                  "id": 2,
+                  "name": "LE RING",
+                  "description": "Au chocolat & noisettes",
+                  "imgLink": "ring",
+                  "price": 9,
+                  "label": "Desserts maison",
+                  "__v": 0
+                }
+              ]
+            },
+            "schema": {
+              "$ref": "#/definitions/Vines"
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/vines/get/{id}": {
+      "get": {
+        "tags": [
+          "Wines"
+        ],
+        "description": "Recovery of a wine by its id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success, recovery of a wine by its id",
+            "example": {
+              "application/json": {
+                "_id": "65b26e68707d538bc0df8b8e",
+                "id": 1,
+                "name": "CRÉATION AUTOUR DU CITRON",
+                "description": "Création maison sur le thème du Citron",
+                "imgLink": "creation_citron",
+                "price": 9,
+                "label": "Desserts maison",
+                "__v": 0
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Vines"
+            },
+            "404": {
+              "$ref": "#/components/responses/404"
+            },
+            "500": {
+              "$ref": "#/components/responses/500"
+            }
+          }
+        }
+      }
+    },
+    "/vines/create": {
+      "post": {
+        "tags": [
+          "Wines"
+        ],
+        "description": "Create a wine",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imgLink",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "price25cl",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "price33cl",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "price50cl",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "priceBottle",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "label",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Wine created",
+            "schema": {
+              "$ref": "#/definitions/Vines"
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+
+    "/menuDiscovery/get": {
+      "get": {
+        "tags": [
+          "Menu Discovery"
+        ],
+        "description": "Recovery of all menu discovery",
+        "responses": {
+          "200": {
+            "description": "Success, recovery of all menu discovery",
+            "example": {
+              "application/json": [
+                {
+                  "_id": "65b26e68707d538bc0df8b8e",
+                  "id": 1,
+                  "name": "CRÉATION AUTOUR DU CITRON",
+                  "description": "Création maison sur le thème du Citron",
+                  "imgLink": "creation_citron",
+                  "price": 9,
+                  "label": "Desserts maison",
+                  "__v": 0
+                },
+                {
+                  "_id": "65b26ea1707d538bc0df8b92",
+                  "id": 2,
+                  "name": "LE RING",
+                  "description": "Au chocolat & noisettes",
+                  "imgLink": "ring",
+                  "price": 9,
+                  "label": "Desserts maison",
+                  "__v": 0
+                }
+              ]
+            },
+            "schema": {
+              "$ref": "#/definitions/MenuDiscovery"
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/menuDiscovery/get/{id}": {
+      "get": {
+        "tags": [
+          "Menu Discovery"
+        ],
+        "description": "Recovery of a menu discovery by its id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success, recovery of a menu discovery by its id",
+            "example": {
+              "application/json": {
+                "_id": "65b26e68707d538bc0df8b8e",
+                "id": 1,
+                "name": "CRÉATION AUTOUR DU CITRON",
+                "description": "Création maison sur le thème du Citron",
+                "imgLink": "creation_citron",
+                "price": 9,
+                "label": "Desserts maison",
+                "__v": 0
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/MenuDiscovery"
+            },
+            "404": {
+              "$ref": "#/components/responses/404"
+            },
+            "500": {
+              "$ref": "#/components/responses/500"
+            }
+          }
+        }
+      }
+    },
+    "/menuDiscovery/create": {
+      "post": {
+        "tags": [
+          "Menu Discovery"
+        ],
+        "description": "Create a menu discovery",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imgLink",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "label",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Menu discovery created",
+            "schema": {
+              "$ref": "#/definitions/MenuDiscovery"
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+
+    "/menuEscale/get": {
+      "get": {
+        "tags": [
+          "Menu Escale"
+        ],
+        "description": "Recovery of all menu escale",
+        "responses": {
+          "200": {
+            "description": "Success, recovery of all menu escale",
+            "example": {
+              "application/json": [
+                {
+                  "_id": "65b26e68707d538bc0df8b8e",
+                  "id": 1,
+                  "name": "CRÉATION AUTOUR DU CITRON",
+                  "description": "Création maison sur le thème du Citron",
+                  "imgLink": "creation_citron",
+                  "price": 9,
+                  "label": "Desserts maison",
+                  "__v": 0
+                },
+                {
+                  "_id": "65b26ea1707d538bc0df8b92",
+                  "id": 2,
+                  "name": "LE RING",
+                  "description": "Au chocolat & noisettes",
+                  "imgLink": "ring",
+                  "price": 9,
+                  "label": "Desserts maison",
+                  "__v": 0
+                }
+              ]
+            },
+            "schema": {
+              "$ref": "#/definitions/MenuEscale"
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/menuEscale/get/{id}": {
+      "get": {
+        "tags": [
+          "Menu Escale"
+        ],
+        "description": "Recovery of a menu escale by its id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success, recovery of a menu escale by its id",
+            "example": {
+              "application/json": {
+                "_id": "65b26e68707d538bc0df8b8e",
+                "id": 1,
+                "name": "CRÉATION AUTOUR DU CITRON",
+                "description": "Création maison sur le thème du Citron",
+                "imgLink": "creation_citron",
+                "price": 9,
+                "label": "Desserts maison",
+                "__v": 0
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/MenuEscale"
+            },
+            "404": {
+              "$ref": "#/components/responses/404"
+            },
+            "500": {
+              "$ref": "#/components/responses/500"
+            }
+          }
+        }
+      }
+    },
+    "/menuEscale/create": {
+      "post": {
+        "tags": [
+          "Menu Escale"
+        ],
+        "description": "Create a menu escale",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imgLink",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "label",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Menu escale created",
+            "schema": {
+              "$ref": "#/definitions/MenuEscale"
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+
+    "/reservations/get": {
+      "get": {
+        "tags": [
+          "Reservations"
+        ],
+        "description": "Recovery of all reservations",
+        "responses": {
+          "200": {
+            "description": "Success, recovery of all reservations",
+            "example": {
+              "application/json": [
+                {
+                  "_id": "65b26e68707d538bc0df8b8e",
+                  "id": 1,
+                  "name": "CRÉATION AUTOUR DU CITRON",
+                  "description": "Création maison sur le thème du Citron",
+                  "imgLink": "creation_citron",
+                  "price": 9,
+                  "label": "Desserts maison",
+                  "__v": 0
+                },
+                {
+                  "_id": "65b26ea1707d538bc0df8b92",
+                  "id": 2,
+                  "name": "LE RING",
+                  "description": "Au chocolat & noisettes",
+                  "imgLink": "ring",
+                  "price": 9,
+                  "label": "Desserts maison",
+                  "__v": 0
+                }
+              ]
+            },
+            "schema": {
+              "$ref": "#/definitions/Reservations"
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/reservations/get/{id}": {
+      "get": {
+        "tags": [
+          "Reservations"
+        ],
+        "description": "Recovery of a reservation by its id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success, recovery of a reservation by its id",
+            "example": {
+              "application/json": {
+                "_id": "65b26e68707d538bc0df8b8e",
+                "id": 1,
+                "name": "CRÉATION AUTOUR DU CITRON",
+                "description": "Création maison sur le thème du Citron",
+                "imgLink": "creation_citron",
+                "price": 9,
+                "label": "Desserts maison",
+                "__v": 0
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Reservations"
+            },
+            "404": {
+              "$ref": "#/components/responses/404"
+            },
+            "500": {
+              "$ref": "#/components/responses/500"
+            }
+          }
+        }
+      }
+    },
+    "/reservations/create": {
+      "post": {
+        "tags": [
+          "Reservations"
+        ],
+        "description": "Create a reservation",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "date",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "hour",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "people",
+            "in": "formData",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "comment",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Reservation created",
+            "schema": {
+              "$ref": "#/definitions/Reservations"
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    }
+  },
+
+  "components": {
+
+    "responses":{
+      "200":{
+        "description": "OK. The request was successful."
+      },
+      "401":{
+        "description": "Authentication failed. Incorrect credentials."
+      },
+      "404":{
+        "description": "Invalid request. Parameters are missing/incorrect."
+      },
+      "500":{
+        "description": "Server error. An error occurred during client recovery."
+      }
+        
+    }
+  },
+
+  "definitions": {
+    "Desserts": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "imgLink": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "Drinks": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "imgLink": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "price25cl": {
+          "type": "integer"
+        },
+        "price33cl": {
+          "type": "integer"
+        },
+        "price50cl": {
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "Vines": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "imgLink": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "price25cl": {
+          "type": "integer"
+        },
+        "price33cl": {
+          "type": "integer"
+        },
+        "price50cl": {
+          "type": "integer"
+        },
+        "priceBottle": {
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "MenuDiscovery": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "imgLink": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "MenuEscale": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "imgLink": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "Reservations": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "hour": {
+          "type": "string"
+        },
+        "people": {
+          "type": "integer"
+        },
+        "comment": {
+          "type": "string"
+        }
+      }
+    }
+  }
+    
+}

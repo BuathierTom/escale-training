@@ -1,0 +1,111 @@
+.reservation{
+    background: url("../../../public//Img/background-reservation.png") ;
+    background-size: cover;
+    background-position: center;
+
+
+
+    &__title{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+
+        &__title{
+            font-size: $l-sz;
+            color: $primary;
+            font-weight: 500;
+            font-family: 'Cormorant', serif;
+        }
+
+        &__text{
+            font-family: 'Pinyon Script';
+            font-size: $xxl-sz;
+            color: $tertiary;
+            text-align: center;
+            font-weight: 100;
+            margin: 0;
+
+        }
+    }
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: auto;
+        margin-bottom: auto;
+
+        @include desktop {
+            padding: $xxl-pd;
+        }
+
+        @include mid-desktop{
+            padding: 5rem 13rem;
+        }
+    }
+
+    &__form-line{
+        gap: 2rem;
+        display: flex;
+        flex-direction: column;
+        @include desktop{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            gap: 8rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &__form-input{
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+
+        textarea{
+            height: 60px;
+            width: 100%;
+            resize: none;
+        }
+
+        &__input{
+            border-radius: $l-rad;
+            border-style: solid;
+            border-width: 1.5px;
+            border-color: $primary;
+            padding: $xs-pd;
+            width: 90%;
+            background-color: transparent;
+            margin-top: 0.2rem;
+    
+            &:focus{
+                outline: none;
+            }
+    
+            @include tablet{
+                width: 100%;
+            }
+        }
+
+        &__label{
+            font-size: 1.2rem;
+            color: $tertiary;
+            margin-left: 0.5rem;
+            font-family: 'Cormorant', serif;
+
+        }
+    }
+
+    &__button{
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+}

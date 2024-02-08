@@ -1,0 +1,142 @@
+.presentation{
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Pinyon Script';
+
+    &__container{
+        height: 100%;
+    }
+
+    &__title{
+        position: absolute;
+        top: 0%;
+        left: 42%;
+        text-align: center;
+        z-index: 1;
+        font-size: 4rem;
+        margin: 0;
+        color: $secondary;
+    }
+
+    &__content{
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 100%;
+        width: 120%;
+        position: relative;
+        left: -10%;
+    }
+
+    &__contact{
+        width: 100%;
+        height: 100%;
+        font-size: 4rem;
+        background-image: url('../../../public/Img/imgcontact.jpg');
+        background-attachment: scroll !important;
+        background-repeat: no-repeat !important;
+        background-position: center;
+        background-size: cover;
+        flex:1;
+        color: $secondary;
+        transform: skew(6deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        p{
+            transform: skew(-6deg);
+        }
+        filter: brightness(0.4);
+        &:hover{
+            transition: 0.5s;
+            filter: brightness(0.6);
+            p{
+                filter: brightness(1);
+            }
+        }
+    }
+
+    &__menu{
+        width: 100%;
+        height: 100%;
+        font-size: 4rem;
+        color: $secondary;
+        background-image: url('../../../public/Img/imgmenu.jpg');
+        background-attachment: scroll !important;
+        background-repeat: no-repeat !important;
+        background-position: center;
+        background-size: cover;
+        transform: skew(6deg);
+        filter: brightness(0.4);
+        &:hover{
+            transition: 0.5s;
+            filter: brightness(0.6);
+        }
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        &__title{
+            text-align: center;
+            margin: 0;
+        }
+
+        &__content{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            p{
+                transform: skew(-6deg);
+            }
+        }
+    }
+
+    &__reservation{
+        width: 100%;
+        height: 100%;
+        font-size: 4rem;
+        color: $secondary;
+        background-image: url('../../../public/Img/imgreservation.jpg');
+        background-attachment: scroll !important;
+        background-repeat: no-repeat !important;
+        background-position: center;
+        background-size: cover;
+        transform: skew(6deg);
+        display: flex;
+        align-items: center;
+        height: 100%;
+        p{
+            transform: skew(-6deg);
+            margin-left: 5rem;
+        }
+        filter: brightness(0.4);
+        &:hover{
+            transition: 0.5s;
+            filter: brightness(0.6);
+        }
+    }
+}
+
+.presentation-text{
+    background-color: $primary;
+    padding: 4rem;
+
+    &__title{
+        font-size: 2rem;
+        color: $secondary;
+        text-align: center;
+        margin: 0;
+        font-family: 'Cormorant';
+        margin-bottom: 2rem;
+    }
+
+    &__content{
+        font-size: 2.5rem;
+        color: $tertiary;
+        text-align: center;
+        margin: 0;
+        font-family: 'Pinyon Script';
+    }
+}

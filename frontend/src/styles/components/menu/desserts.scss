@@ -1,0 +1,39 @@
+.desserts {
+    overflow: hidden;
+    &__list {
+        max-height: 16rem;
+        min-width: 16rem;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+
+    }
+
+    &__img {
+      margin: 0.5rem 0;
+    }
+
+
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: white;
+
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ff9684;
+    border-radius: 10px;
+
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
